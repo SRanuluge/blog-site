@@ -1,22 +1,23 @@
 <?php
 
-session_start()
+session_start();
 
-function splitURL(a)
+function splitURL()
 {
-  $URL = $_GET["url"] ?? 'home' ;
-  $URL = explode("/", $URL);
-  return $URL;
+    $URL = $_GET['url'] ?? 'home';
+    $URL = explode('/', $URL);
+    return $URL;
 }
 
 function loadController()
 {
-  $URL = splitURL()
-  $filename = "../app/controllers/".ucfirst($URL[0]).".php";
-  if($filename){
-return $filename
-
-  }else{
-    return "not found" 
-  }
+    $url = splitURL();
+    $filename = '../app/controllers/' . ucfirst($url[0]) . '.php';
+    if ($filename) {
+        return $filename;
+    } else {
+        return 'not found';
+    }
 }
+
+loadController();
