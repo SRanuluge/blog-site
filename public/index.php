@@ -13,12 +13,19 @@ function loadController()
 {
     $url = splitURL();
     $filename = '../app/controllers/' . ucfirst($url[0]) . '.php';
-    if ($filename) {
-        echo $filename;
-        return $filename;
+    if (file_exists($filename)) {
+        require $filename;
     } else {
-        return 'not found';
+        $filename = '../app/controllers/_404.php';
+        require $filename;
     }
+}
+
+function show($stuff)
+{
+    echo '<pre>';
+    print_r($stuff);
+    echo '</pre>';
 }
 
 loadController();
