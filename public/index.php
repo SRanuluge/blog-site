@@ -17,7 +17,6 @@ function loadController()
         echo $filename;
         return $filename;
     } else {
-        echo 'not found';
         return 'not found';
     }
 }
