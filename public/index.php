@@ -1,24 +1,7 @@
 <?php
 
 session_start();
+require '../app/core/init.php';
 
-function splitURL()
-{
-    $URL = $_GET['url'] ?? 'home';
-    $URL = explode('/', $URL);
-    return $URL;
-}
-
-function loadController()
-{
-    $url = splitURL();
-    $filename = '../app/controllers/' . ucfirst($url[0]) . '.php';
-    if ($filename) {
-        echo $filename;
-        return $filename;
-    } else {
-        return 'not found';
-    }
-}
-
-loadController();
+$app = new App;
+$app->loadController();
