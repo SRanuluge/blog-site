@@ -4,6 +4,10 @@ class Home extends Controller
 {
     public function index(): void
     {
-        echo 'this is the home comtroller';
+        $this->view('home');
     }
 }
+
+echo 'home controller';
+$home = new Home();
+$home->index();
