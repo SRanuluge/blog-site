@@ -8,6 +8,5 @@ class Home extends Controller
     }
 }
 
-echo 'home controller';
 $home = new Home();
 $home->index();
